@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbf8f4">
+  <meta name="description" content="Bibash Kumal — Computing and Software Engineering student learning by building.">
+  <title>Bibash Kumal | Computing Student</title>
+  <style>
+    :root {
+      --paper: #fbf8f4;
+      --ink: #171717;
+      --muted: #77736f;
+      --accent: #bd8a6b;
+      --line: #e8e2dc;
+      --white: #fff;
+      --shadow: 0 24px 60px rgba(40, 31, 25, .13);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { 
+        color: inherit; 
+        text-decoration: none; 
+    }
+
+    .page { 
+        width: min(1180px, calc(100% - 64px)); 
+        margin: 0 auto; 
+    }
+
+    .topbar {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .brand { 
+        font-size: 13px; 
+        font-weight: 800; 
+        letter-spacing: .16em;
+     
+    }
+
+    .nav { 
+        display: flex; 
+        align-items: center; 
+        gap: 34px; 
+        color: #595653; 
+        font-size: 12px; 
+    }
+
+    .nav a:hover { 
+        color: var(--accent); 
+    }
+
+    .nav-cta, .button-primary {
+      display: inline-flex; 
+      align-items: center; 
+      justify-content: center;
+      min-height: 42px; 
+      padding: 0 20px; 
+      border-radius: 999px;
+      background: var(--ink); 
+      color: var(--white); 
+      font-size: 12px; 
+      font-weight: 650;
+      box-shadow: 0 7px 16px rgba(23,23,23,.14); 
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .nav-cta { 
+        min-height: 36px; 
+        padding: 0 17px; 
+        font-size: 11px; 
+    }
+
+    .button-primary:hover, .nav-cta:hover { 
+        transform: translateY(-2px); 
+        box-shadow: 0 10px 22px rgba(23,23,23,.18); 
+    }
+
+    .hero {
+      min-height: 540px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 28px;
+      padding: 26px 0 18px;
+    }
+
+    .hero-copy { 
+        padding: 20px 0 26px 4px; 
+        max-width: 520px; 
+    }
+
+    .eyebrow { 
+        margin: 0 0 19px; 
+        color: var(--accent); 
+        font-size: 10px; 
+        font-weight: 800; 
+        letter-spacing: .21em; 
+        text-transform: uppercase; 
+    }
+
+    h1 { 
+        max-width: 530px; 
+        margin: 0; 
+        font-size: clamp(44px, 5.3vw, 68px); 
+        line-height: .99; 
+        letter-spacing: -.065em; 
+        font-weight: 760; 
+    }
+
+    h1 span { 
+        display: block; 
+        color: var(--accent); 
+    }
+
+    .intro { 
+        max-width: 425px; 
+        margin: 21px 0 22px; 
+        color: var(--muted); 
+        font-size: 15px; 
+        line-height: 1.75; 
+    }
+
+    .actions { 
+        display: flex; 
+        align-items: center; 
+        gap: 11px; 
+    }
+
+    .button-secondary {
+      min-height: 42px; 
+      padding: 0 20px; 
+      display: inline-flex; 
+      align-items: center;
+      border: 1px solid #d5cdc5; 
+      border-radius: 999px; 
+      font-size: 12px; 
+      font-weight: 650;
+      transition: background .2s;
+    }
+
+    .button-secondary:hover { 
+        background: #fff; 
+    }
+
+
+    .art-wrap { 
+        min-height: 435px; 
+        position: relative; 
+        display: grid; 
+        place-items: center; 
+    }
+
+    .art-shape {
+      position: absolute; 
+      inset: 8px 12px 15px 18px;
+      overflow: hidden; 
+      border-radius: 42% 58% 50% 50% / 43% 39% 61% 57%;
+      background: linear-gradient(145deg, #e7d6ca, #c8a58e 50%, #8c6f60);
+      transform: rotate(2deg);
+    }
+
+    .art-shape::before {
+      content: ""; 
+      position: absolute; 
+      width: 390px; 
+      height: 390px; 
+      right: -75px; 
+      top: -100px;
+      border-radius: 50%; 
+      background: rgba(255,255,255,.21); 
+      filter: blur(2px);
+    }
+
+     .desk { 
+        position: absolute; 
+        left: 6%; 
+        right: 2%; 
+        bottom: 11%; 
+        height: 28%; 
+        border-radius: 50%; 
+        background: rgba(45,35,30,.25); filter: blur(10px); 
+    }
+
+    .window {
+      position: absolute; 
+      width: min(72%, 400px); 
+      right: 8%; 
+      top: 18%; 
+      padding: 17px;
+      border: 1px solid rgba(255,255,255,.65); 
+      border-radius: 16px;
+      background: rgba(250,248,245,.88); 
+      box-shadow: var(--shadow); 
+      transform: rotate(-5deg);
+      backdrop-filter: blur(10px);
+    }
+
+    .window-bar { 
+        display: flex; 
+        align-items: center; 
+        gap: 5px; 
+        padding-bottom: 15px; 
+        border-bottom: 1px solid var(--line); 
+    }
+
+    .dot { 
+        width: 7px; 
+        height: 7px; 
+        border-radius: 50%; 
+        background: #d6c7bd; 
+    }
+
+    .window-title { 
+        margin-left: auto; 
+        color: #8b827d; 
+        font-size: 9px; 
+        letter-spacing: .07em; 
+    }
+
+    .code { 
+        padding: 17px 4px 6px; 
+        font-family: Consolas, "Courier New", monospace; 
+        font-size: clamp(10px, 1.1vw, 13px); 
+        line-height: 1.9; 
+        color: #5f5b59; 
+    }
+
+    .code .kw { 
+        color: #a36e50; 
+        font-weight: bold; 
+    }
+
+    .code .str { 
+        color: #708c78; 
+    }
+
+    .profile-chip {
+      position: absolute; 
+      left: 2%; 
+      bottom: 12%; 
+      padding: 14px 17px; 
+      border: 1px solid rgba(255,255,255,.7);
+      border-radius: 14px; 
+      background: rgba(255,255,255,.9); 
+      box-shadow: var(--shadow); 
+      transform: rotate(3deg);
+    }
+
+
+    .profile-chip strong { 
+        display: block; 
+        font-size: 12px; 
+    }
+
+    .profile-chip small { 
+        color: var(--muted); 
+        font-size: 10px; 
+    }
+
+    .spark { 
+        position: absolute; 
+        top: 12%; 
+        left: 12%; 
+        color: #fffaf5; 
+        font-size: 27px; 
+    }
+
+
+    .trusted { 
+        display: flex; 
+        align-items: center; 
+        gap: clamp(16px, 4vw, 48px); 
+        min-height: 70px; 
+        border-top: 1px solid var(--line); 
+        color: #aaa39d; 
+    }
+
+    .trusted-label { 
+        font-size: 10px; 
+        white-space: nowrap; 
+    }
+
+    .tag { 
+        color: #87817b; 
+        font-size: 10px; 
+        font-weight: 750; 
+        letter-spacing: .12em; 
+    }
+
+    .below { 
+        padding: 48px 0 70px; 
+    }
+
+    .below h2 { 
+        margin: 0 0 10px; 
+        font-size: 25px; 
+        letter-spacing: -.04em; 
+    }
+
+    .below p { 
+        margin: 0; 
+        max-width: 650px; 
+        color: var(--muted); 
+        line-height: 1.7; 
+        font-size: 14px; 
+    }
+
+    footer { 
+        border-top: 1px solid var(--line); 
+        padding: 20px 0 30px; 
+        color: var(--muted); 
+        font-size: 11px; 
+    }
+
+    @media (max-width: 760px) {
+      .page { 
+        width: min(100% - 36px, 560px);
+     
+    }
+      .topbar { 
+        min-height: 70px; 
+    }
+
+      .nav { 
+        gap: 16px; 
+    }
+    
+      .nav a:not(.nav-cta) { 
+        display: none; 
+    }
+
+      .hero { 
+        grid-template-columns: 1fr; 
+        gap: 0; 
+        padding-top: 36px; 
+    }
+
+      .hero-copy { 
+        padding: 0; 
+    }
+
+      h1 { 
+        font-size: clamp(44px, 12vw, 64px); 
+    }
+
+      .art-wrap { 
+        min-height: 370px; 
+        margin-top: 16px; 
+    }
+
+      .art-shape { 
+        inset: 8px 4px 12px; 
+    }
+
+      .window { 
+        right: 7%; 
+    }
+
+      .trusted { 
+        flex-wrap: wrap;
+        gap: 12px 22px; 
+        padding: 18px 0; 
+    }
+
+      .trusted-label { 
+        flex-basis: 100%; 
+    }
+
+    }
+
+     @media (prefers-reduced-motion: reduce) {
+      html { 
+        scroll-behavior: auto; 
+    }
+
+      *, *::before, *::after { 
+        transition-duration: .01ms !important; 
+    }
+
+    }
+
+
+  </style>
+</head>
+<body>
+  <header class="page topbar">
+    <a class="brand" href="#home" aria-label="Bibash Kumal home">BIBASH KUMAL</a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a class="nav-cta" href="mailto:bibash.kumal@patancollege.edu.np">Contact me</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page hero" id="home" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Computing · Software Engineering · Learning by building</p>
+        <h1 id="hero-title">Building skills for <span>what comes next.</span></h1>
+        <p class="intro">I’m Bibash, a Computing and Software Engineering student exploring Python, web development and software design. I learn by practising, making projects and improving a little every day.</p>
+        <div class="actions">
+          <a class="button-primary" href="#projects">View my projects</a>
+          <a class="button-secondary" href="mailto:bibash.kumal@patancollege.edu.np">Get in touch</a>
+        </div>
+      </div>
+
+      <div class="art-wrap" aria-label="Illustration of a student learning programming">
+
+        <div class="art-shape"></div>
+
+        <span class="spark" aria-hidden="true">✳</span>
+
+        <div class="desk"></div>
+
+        <div class="window" aria-hidden="true">
+
+          <div class="window-bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span class="window-title">learning.py</span></div>
+
+          <div class="code">
+             <div><span class="kw">name</span> = <span class="str">"Bibash"</span></div>
+
+            <div><span class="kw">skills</span> = [<span class="str">"Python"</span>,</div>
+
+            <div><span class="str">"HTML &amp; CSS"</span>, <span class="str">"UML"</span>]</div>
+            <div></div>
+            <div><span class="kw">while</span> learning:</div>
+
+            <div>&nbsp;&nbsp;practice()</div>
+
+            <div>&nbsp;&nbsp;build_something()</div>
+            
+          </div>
+        </div>
+        <div class="profile-chip"><strong>Curious by nature</strong><small>Practising every day</small></div>
+      </div>
+    </section>
+      <section class="page trusted" id="skills" aria-label="Current learning areas">
+      <span class="trusted-label">Currently learning</span>
+      <span class="tag">PYTHON</span>
+      <span class="tag">HTML &amp; CSS</span>
+      <span class="tag">MYSQL</span>
+      <span class="tag">UML</span>
+      <span class="tag">COMPUTATIONAL THINKING</span>
+    </section>
+
+    <section class="page below" id="about">
+      <p class="eyebrow">A little about me</p>
+      <h2>Learning through consistent practice.</h2>
+      <p>I make time for study and hands-on practice each day, revisiting what I learn in class and building confidence with the tools and ideas behind software development.</p>
+    </section>
+
+    <section class="page below" id="projects">
+      <p class="eyebrow">Selected work</p>
+      <h2>Small projects, steady progress.</h2>
+      <p>Use this section to add links or cards for your personal profile website, UML use-case diagrams and Smart Campus Lost and Found System project.</p>
+    </section>
+  </main>
+
+  <footer class="page">© 2026 Bibash Kumal · Kathmandu, Nepal</footer>
+</body>
+</html>
+
